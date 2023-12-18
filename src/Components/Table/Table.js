@@ -6,7 +6,7 @@ import EditModal from '../modal/EditModal';
 import { fetchInitialData, deleteRowData, addNewData, editRowData} from '../../apis/ProductApi';
 import MyButton from '../Buttons/Button';
 import './Table.css';
-import Button from '@mui/material/Button';
+import { Logout } from '../LogOut/Logout';
 
 function Table() {
 
@@ -150,7 +150,7 @@ function Table() {
     <div className='main-nav'>
       <div className='nav-heading'><Typography variant='h3'  gutterBottom>Home</Typography></div>
       <div className='logout-button'>
-        <Button variant='contained'>LogOut</Button>
+        <Logout/>
       </div>
     </div>
 
