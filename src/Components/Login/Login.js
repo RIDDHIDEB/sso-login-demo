@@ -3,7 +3,7 @@ import React from 'react'
 import './Login.css';
 import { Button } from '@mui/material';
 import { useMsal } from '@azure/msal-react';
-import { loginRequest } from '../../msalConfig';
+import { loginRequest } from '../../msalConfig'
 
 function Login() {
     const { instance } = useMsal();
