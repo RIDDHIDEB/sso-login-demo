@@ -13,6 +13,7 @@ function AddUserModal  ({ open, handleClose, handleSaveNewUser, handleNewUserCha
         <DialogContent style={{ padding: '20px' }}>
           <TextField
             label='Title'
+            variant='outlined'
             // value={editRow?.title}
             onChange={(e) => handleNewUserChange('title', e.target.value)}
             style={{ margin: '20px' }}
@@ -51,6 +52,5 @@ function AddUserModal  ({ open, handleClose, handleSaveNewUser, handleNewUserCha
 
   )
 };
-
 
 export default AddUserModal;

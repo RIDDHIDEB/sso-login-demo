@@ -3,57 +3,69 @@ import React from 'react'
 import './Login.css';
 import { Button } from '@mui/material';
 import { useMsal } from '@azure/msal-react';
-import { loginRequest } from '../../msalConfig'
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import { loginRequest } from '../../msalConfig';
 
-function Login() {
+function LoginModal(open, handleClose) {
     const { instance } = useMsal();
       
-        const handleLogin = async () => {
-          try {
-            const loginResponse = await instance.loginPopup(loginRequest);
-
-            console.log(loginResponse);
-          } catch (error) {
-            console.error(error);
-          }
-        };
+    const handleLogin = () =>{
+      instance.loginRedirect();
+  }
 
   return (
     <>
-      <div className='container3'>
+    <Dialog open={open} onClose={handleClose} maxWidth='sm'>
+      <DialogTitle variant='h4'>Login</DialogTitle>
+      <DialogContent style={{ padding: '20px' }}>
+        <TextField label='Email' variant='outlined'/>
+        <TextField label='Password' variant='outlined'/>
+      </DialogContent>
+      <DialogActions>
+        <Button variant='contained' onClick={handleLogin}>Login</Button>
+      </DialogActions>
+    </Dialog>
+
+
+
+
+
+
+      {/* <div className='container3'>
       <div className="auth-form-container">
       <form className="login-form" >
-        <label htmlFor="email">Email:</label>
-
-        <input
-        //   onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="your@.com"
-          id="email"
-          name="email"
-        />
-        <label htmlFor="password">Password:</label>
-
-        <input
-        //   onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          placeholder="********"
-          id="password"
-          name="password"
-        />
-       <div style={{marginBottom:'20px'}}>
+          <TextField
+            id="outlined-basic"
+            label='Email'
+            variant='outlined'
+            value={editRow?.title}
+            onChange={(e) => handleNewUserChange('title', e.target.value)}
+            style={{ margin: '20px' }}
+          />
+          <TextField
+            id="outlined-basic"
+            label='Password'
+            variant='outlined'
+            value={editRow?.price}
+            onChange={(e) => handleNewUserChange('price', e.target.value)}
+            style={{ margin: '20px' }}
+          />
+       <div className='login-button'>
         <Button variant='contained' onClick={handleLogin}>Login</Button>
        </div>
-
       </form>
       <p>Don't have an account?</p>
-      {/* <Link to='/signup'>
+      <Link to='/signup'>
          Register Here
-      </Link> */}
+      </Link>
     </div>
-    </div>
+    </div> */}
     </>
   )
 }
 
-export default Login;
+export default LoginModal;

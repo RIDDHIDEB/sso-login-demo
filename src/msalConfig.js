@@ -5,11 +5,11 @@ export const msalConfig = {
     clientId: 'b4aef742-75b6-472e-a6e9-d4d66e570f56',
     authority: 'https://login.microsoftonline.com/420fe8d6-bf12-4b0d-b544-2d446b8609de',
     redirectUri: 'http://localhost:3000',
-    // postLogoutRedirectUri: 'http://localhost:3000',
+    // postLoginRedirectUri: 'http://localhost:3000/table',
   },
   cache: {
-    cacheLocation: "sessionStorage", 
-    storeAuthStateInCookie: false, 
+    cacheLocation: "localStorage", 
+    storeAuthStateInCookie: true, 
 },
 system:{
     loggerOptions:{

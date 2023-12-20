@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { Typography, Box, Stack} from '@mui/material';
+import { Typography, Box, Stack, Alert, AlertTitle} from '@mui/material';
 import AddUserModal from '../modal/AddUserModal';
 import EditModal from '../modal/EditModal';
 import { fetchInitialData, deleteRowData, addNewData, editRowData} from '../../apis/ProductApi';
@@ -24,6 +24,7 @@ function Table() {
       discountPercentage: '',
       rating: '',
     });
+    const [showAlert, setShowAlert] = useState(false);
 
     const handleOpenAddDialog = () => setAddDialogOpen(true);
     const handleCloseAddDialog = () => setAddDialogOpen(false);
@@ -143,12 +144,17 @@ function Table() {
           rating: '',
         });
         setAddDialogOpen(false);
+        setShowAlert(true);
+
+        setTimeout(() => {
+          setShowAlert(false);
+        }, 3000);
       };
 
   return (
     <>
     <div className='main-nav'>
-      <div className='nav-heading'><Typography variant='h3'  gutterBottom>Home</Typography></div>
+      <div className='nav-heading'><Typography variant='h3'  gutterBottom>Table</Typography></div>
       <div className='logout-button'>
         <Logout/>
       </div>
@@ -160,7 +166,7 @@ function Table() {
     </div>
     <Box sx={{
       height:"100%",
-      width:"70%",
+      width:"72%",
       marginLeft: "15%"
     }}>
     <div style={{display:"flex",justifyContent:"flex-end"}}>
@@ -206,6 +212,12 @@ function Table() {
         newUser={newUser}
       />
 
+    {showAlert && (
+        <Alert severity="success" onClose={() => setShowAlert(false)} className='alert-container'>
+          <AlertTitle>Success</AlertTitle>
+          User added successfully!
+        </Alert>
+      )}
     </>
   )
 }

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center; /* Vertically center the content */
     align-items: center; /* Horizontally center the content */
-    height: 100vh;
+    /* height: 100vh; */
     
    /* Set the container's height to 100% of the viewport height */
 
@@ -20,44 +20,24 @@
     animation: slideIn 0.5s ease-in-out;
   }
 
-  
-
   @keyframes fadeIn {
-
     from {
-
       opacity: 0;
-
     }
-
     to {
-
       opacity: 1;
-
     }
-
-  }
-
-  
+  } 
 
   @keyframes slideIn {
-
     from {
-
       transform: translateY(-10px);
-
       opacity: 0;
-
     }
-
     to {
-
       transform: translateY(0);
-
       opacity: 1;
-
     }
-
   }
 
   .login-form {
@@ -65,63 +45,10 @@
     flex-direction: column;
   }
 
-  label {
-    margin-bottom: 8px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    padding: 10px;
-    margin-bottom: 34px;
-    border: 1px solid #ccc;
-    border-radius: 9px;
-  }
-
-  
-
-  button[type="submit"] {
-    background-color: #5b636b;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .link-btn {
-    text-align: center;
-    color: #20A0D8;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .link-btn:hover {
-    text-decoration: underline;
-  }
-
-  .login-button {
-    background-color: #544c68;
-    color: white;
-    border: none;
-    padding: 10px 30px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .login-button:hover {
-    background-color: #656b70;
-  }
-
-  .success-message {
+  .login-button{
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #4CAF50; /* Green background color */
-    color: white; /* White text color */
-    padding: 10px; /* Padding around the message */
-    text-align: center; /* Center the text */
-    font-size: 16px; /* Font size */
-    border-radius: 5px; /* Rounded corners */
-    margin: 100px 0; /* Add margin to separate from other elements */
+    margin-bottom: 20px;
   }
+
+ 
